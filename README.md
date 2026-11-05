@@ -11,7 +11,7 @@ A thin DSH glue plugin that composes two **pristine** upstream packages:
 dsh plugin --profile desktop add `
   "github:loonai321/dsh-humanized-deepseek-maid#c13281456456a6b4018288396eef14c3c97628c8" `
   "@anonyjcy/dsh-j-space@1.2.5" `
-  "github:<owner>/dsh-maid-jspace#main"
+  "github:mobobo/dsh-maid-jspace#main"
 ```
 
 Then add **only** this to `dsh.profile.bundles` in `$DSH_HOME/profiles/<profile>/package.json`:

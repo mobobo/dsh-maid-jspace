@@ -12,7 +12,7 @@
 dsh plugin --profile desktop add `
   "github:loonai321/dsh-humanized-deepseek-maid#c13281456456a6b4018288396eef14c3c97628c8" `
   "@anonyjcy/dsh-j-space@1.2.5" `
-  "github:<owner>/dsh-maid-jspace#main"
+  "github:mobobo/dsh-maid-jspace#main"
 ```
 
 然后把**只**这一行加进 profile 的 `dsh.profile.bundles`（`$DSH_HOME/profiles/<profile>/package.json`）：
