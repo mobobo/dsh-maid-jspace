@@ -1,0 +1,49 @@
+{
+  "name": "dsh-maid-jspace",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Glue layer that mounts the pristine dsh-humanized-deepseek-maid persona/memory through its own plugin, and installs a combined whale-maid × J-Space skill. The upstream packages stay untouched.",
+  "keywords": [
+    "dsh-plugin",
+    "deepseek-harness",
+    "persona",
+    "maid",
+    "j-space",
+    "glue"
+  ],
+  "license": "MIT",
+  "author": "zhuhao",
+  "main": "lib/index.mjs",
+  "files": [
+    "lib",
+    "skills",
+    "cordis.patch.yml",
+    "README.md",
+    "README.zh.md",
+    "LICENSE"
+  ],
+  "exports": {
+    ".": "./lib/index.mjs",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "dependencies": {
+    "dsh-humanized-deepseek-maid": "github:loonai321/dsh-humanized-deepseek-maid#c13281456456a6b4018288396eef14c3c97628c8"
+  },
+  "peerDependencies": {
+    "@anonyjcy/dsh-j-space": ">=1.2.5"
+  },
+  "peerDependenciesMeta": {
+    "@anonyjcy/dsh-j-space": {
+      "optional": true
+    }
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

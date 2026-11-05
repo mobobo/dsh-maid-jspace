@@ -1,0 +1,17 @@
+# dsh-maid-jspace — bundle patch.
+#
+# This bundle mounts exactly ONE row: the glue plugin itself. The upstream
+# persona package (dsh-humanized-deepseek-maid) is a plain dependency and is
+# deliberately NOT mounted by the loader — the glue calls its apply() itself,
+# which is what keeps the upstream package pristine and unmodified.
+#
+# If the upstream row is still mounted (because it is also installed as a
+# top-level dependency of the profile), you get TWO persona sections and TWO
+# memory writers. Disable it in your profile patch:
+#
+#   - id: dsh-humanized-deepseek-maid
+#     disabled: true
+#
+- insert:
+    - id: dsh-maid-jspace
+      name: dsh-maid-jspace
