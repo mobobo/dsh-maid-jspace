@@ -27,15 +27,13 @@
     "./cordis.patch.yml": "./cordis.patch.yml",
     "./package.json": "./package.json"
   },
-  "dependencies": {
-    "dsh-humanized-deepseek-maid": "github:loonai321/dsh-humanized-deepseek-maid#c13281456456a6b4018288396eef14c3c97628c8"
-  },
-  "peerDependencies": {
-    "@anonyjcy/dsh-j-space": ">=1.2.5"
-  },
-  "peerDependenciesMeta": {
-    "@anonyjcy/dsh-j-space": {
-      "optional": true
+  "dshUpstream": {
+    "note": "Deliberately NOT declared as dependency/peer: pnpm's blockExoticSubdeps rejects a git-sourced transitive dependency. Install them as top-level packages together with this one (see README).",
+    "required": {
+      "dsh-humanized-deepseek-maid": "github:loonai321/dsh-humanized-deepseek-maid#c13281456456a6b4018288396eef14c3c97628c8"
+    },
+    "recommended": {
+      "@anonyjcy/dsh-j-space": "^1.2.5"
     }
   },
   "engines": {
