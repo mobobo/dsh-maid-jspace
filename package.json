@@ -1,6 +1,6 @@
 {
   "name": "dsh-maid-jspace",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
   "description": "Glue layer that mounts the pristine dsh-humanized-deepseek-maid persona/memory through its own plugin, and installs a combined whale-maid × J-Space skill. The upstream packages stay untouched.",
   "keywords": [
