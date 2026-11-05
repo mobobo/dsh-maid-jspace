@@ -145,6 +145,18 @@ dsh plugin --profile <profile> remove dsh-maid-jspace
 
 **未**在别人机器上做过端到端安装；第一次给别人装时留意启动日志里 `[dsh-maid-jspace]` 开头的行。
 
+## 注意事项（装之前先看）
+
+1. **三个包必须一条命令一起装**。pnpm 的 `blockExoticSubdeps` 禁止 git 源出现在子依赖里，所以本插件刻意不声明依赖。只装本插件 = 有技能、有工作记忆，但**没有人格**（日志会写 `upstream not installed; nothing mounted`）。
+2. **上游包永远不要写进 `dsh.profile.bundles`**。装了不列 = 「已安装、已关闭」。以前挂过女仆的，先删掉那条，或在 profile patch 里加 `- id: dsh-humanized-deepseek-maid` + `disabled: true`，否则人格和记忆会各挂两份。
+3. **必须重启 DSH**。插件在启动时装载；技能文件每次调用重读，改它不用重启。
+4. **版本要对齐**。按 DSH `0.2.1-rc.x` 的服务契约写的（`systemPrompt.section`、`agent/pre-step`）。宿主版本不匹配时 `inject` 等不到服务，插件静默不生效——启动后先看 `[dsh-maid-jspace]` 开头的日志。
+5. **不注册工具**，这是故意的。写入靠直接编辑两个 markdown；如果 profile 里没有任何文件工具，记忆就只能读不能写。
+6. **会话隔离补丁不属于上游**。本机那份女仆带着按会话分文件的本地补丁；从 GitHub 重装会被换成上游版（全局单文件记忆，`sessions/` 不再写入），全局记忆文件本身不会丢。
+7. **一个记忆目录只能有一个写入者**。别让两个 DSH 实例或两个插件指向同一个 `storeDir`，这里没有锁。
+8. **多源路由还没做**。家庭知识库与工作库并行的路由（fs / HTTP 索引 + 关键词路由）目前只有设计。
+9. **GitHub 拉不动时**：先 `git clone`，再 `dsh plugin --profile desktop add "file:<路径>"`，顶层 `file:` 安装没问题。
+
 ## License
 
 MIT。上游女仆插件同为 MIT；j-space 套件为 Apache-2.0 / MIT（见其自身 LICENSE），本仓库不复制其代码。
